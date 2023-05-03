@@ -1,11 +1,11 @@
 <template>
     <Page>
         <ActionBar>
-            <Label text="Time"/>
+            <Label text="Время"/>
         </ActionBar>
 
-        <GridLayout rows="*" columns="*">
-            <Button text="ToHome" @tap="GoToHome()" />
+        <GridLayout rows="auto" columns="*">
+            <Button text="Домой" @tap="GoToHome()" />
         </GridLayout>
     </Page>
 </template>

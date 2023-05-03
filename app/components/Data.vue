@@ -1,7 +1,7 @@
 <template>
     <Page>
         <ActionBar>
-            <Label text="Вес"/>
+            <Label text="Данные"/>
         </ActionBar>
 
         <GridLayout rows="auto" columns="*">

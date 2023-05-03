@@ -4,7 +4,7 @@
             <Label text="Converter"/>
         </ActionBar>
 
-        <GridLayout rows="*, *" columns="*">
+        <GridLayout rows="auto, auto, auto, auto, auto" columns="*">
             <Button v-for="page in pages" :key="page.id" :row="page.id" :text="page.name" @tap="Go(page.id)" />
         </GridLayout>
     </Page>
@@ -13,12 +13,19 @@
 <script>
 import Time from './Time.vue';
 import Weight from './Weight.vue';
+import Volume from './Volume.vue';
+import Temperature from './Temperature.vue';
+import Data from './Data.vue';
+
     export default {
         data () {
             return {
                 pages: [
-                    {id: 0, name: 'ToTime', value: Time},
-                    {id: 1, name: 'ToWeight', value: Weight},
+                    {id: 0, name: 'Данные', value: Data},
+                    {id: 1, name: 'Температура', value: Temperature},
+                    {id: 2, name: 'Время', value: Time},
+                    {id: 3, name: 'Объём', value: Volume},
+                    {id: 4, name: 'Вес', value: Weight},
                 ]
             };
         },
