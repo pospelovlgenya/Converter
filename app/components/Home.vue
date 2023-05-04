@@ -1,12 +1,12 @@
 <template>
-    <Page>
-        <ActionBar>
-            <Label text="Converter"/>
+    <Page class="page">
+        <ActionBar class="ab">
+            <Label text="Converter" class="header"/>
         </ActionBar>
 
-        <GridLayout rows="auto, auto, auto, auto, auto" columns="*">
-            <Button v-for="page in pages" :key="page.id" :row="page.id" :text="page.name" @tap="Go(page.id)" />
-        </GridLayout>
+        <FlexboxLayout flexDirection="column" class="fl">
+            <Button v-for="page in pages" :key="page.id" :row="page.id" :text="page.name" @tap="Go(page.id)" class="home-button" />
+        </FlexboxLayout>
     </Page>
 </template>
 

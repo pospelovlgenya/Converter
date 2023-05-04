@@ -1,19 +1,19 @@
 <template>
-    <Page>
-        <ActionBar>
-            <NavigationButton text="Домой" android.systemIcon="ic_menu_back" @tap="GoToHome()" />
-            <Label text="Данные"/>
+    <Page class="page">
+        <ActionBar class="ab">
+            <NavigationButton text="Домой" android.systemIcon="ic_menu_back" @tap="GoToHome()" class="header" />
+            <Label text="Данные" class="header"/>
         </ActionBar>
 
         <FlexboxLayout flexDirection="column">
             <FlexboxLayout flexDirection="column">
-                <Label text="Величина для конвертации:"/>
-                <TextField v-model="inputValue" keyboardType="number"/>
-                <ListPicker :items="getValues()" v-model="selectedValue"/>
+                <Label text="Величина для конвертации:" class="text"/>
+                <TextField v-model="inputValue" keyboardType="number" class="text"/>
+                <ListPicker :items="getValues()" v-model="selectedValue" class="text"/>
             </FlexboxLayout>
             <FlexboxLayout flexDirection="column">
-                <Label text="В ином виде:"/>
-                <Label v-for="value in values" :key="value.name">{{ value.forInput }} {{ value.name }}</Label>
+                <Label text="Это равняется:" class="text"/>
+                <Label v-for="value in values" :key="value.name" class="text">{{ value.forInput }} {{ value.name }}</Label>
             </FlexboxLayout>
         </FlexboxLayout>
     </Page>

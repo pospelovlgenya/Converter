@@ -4,18 +4,50 @@
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 
-// Font icon class
-.fab {
-  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
-  font-weight: 400;
+.page {
+  place-items: center;
+  place-content: center;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
-.fas {
-  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
-  font-weight: 900;
+.ab {
+  background-color: #FFFF00;
 }
 
-.far {
-  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
-  font-weight: 400;
+.fl {
+  padding: 10px 0px 10px 0px;
+  margin: 10px 0px 10px 0px;
+}
+
+.header {
+  font-size: 30pt;
+  place-items: center;
+  place-content: center;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  color:  #000000;
+}
+
+.home-button {
+  font-size: 20pt;
+  margin: 30px 0px 30px 0px;
+  padding: auto;
+  border: #FFFFFF;
+  border-radius: 100px;
+  box-shadow: 0 0 25px #FFFFFF;
+  color: #FFFF00;
+  background-color: #000000;
+}
+.home-button:active{
+  color: #FFFFFF;
+}
+
+.text {
+  font-size: 15pt;
+  padding: 30px 0px 30px 0px;
+  text-align: center;
+  place-items: center;
+  place-content: center;
+  color: #FFFFFF;
 }
