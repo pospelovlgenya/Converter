@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Time from './Time.vue';
-import Weight from './Weight.vue';
-import Volume from './Volume.vue';
-import Temperature from './Temperature.vue';
 import Data from './Data.vue';
+import Temperature from './Temperature.vue';
+import Time from './Time.vue';
+import Volume from './Volume.vue';
+import Weight from './Weight.vue';
 
     export default {
         data () {
