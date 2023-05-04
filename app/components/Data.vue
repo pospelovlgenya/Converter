@@ -27,13 +27,13 @@ import Home from './Home.vue';
                 inputValue: 0,
                 selectedValue: 0,
                 values: [
-                    {name: 'бит', coef: 1, forInput: 0},
-                    {name: 'Байт', coef: 8, forInput: 0},
-                    {name: 'КБ', coef: 8*10**3, forInput: 0},
-                    {name: 'МБ', coef: 8*10**6, forInput: 0},
-                    {name: 'ГБ', coef: 8*10**9, forInput: 0},
-                    {name: 'ТБ', coef: 8*10**12, forInput: 0},
-                    {name: 'ПБ', coef: 8*10**15, forInput: 0}
+                    {name: 'бит', coef: 2**0, forInput: 0},
+                    {name: 'Байт', coef: 2**3, forInput: 0},
+                    {name: 'КБ', coef: 2**13, forInput: 0},
+                    {name: 'МБ', coef: 2**23, forInput: 0},
+                    {name: 'ГБ', coef: 2**33, forInput: 0},
+                    {name: 'ТБ', coef: 2**43, forInput: 0},
+                    {name: 'ПБ', coef: 2**53, forInput: 0}
                 ],
             };
         },
