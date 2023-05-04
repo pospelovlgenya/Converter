@@ -1,12 +1,21 @@
 <template>
-    <Page>
-        <ActionBar>
-            <Label text="Время"/>
+    <Page class="page">
+        <ActionBar class="ab">
+            <NavigationButton android.systemIcon="ic_menu_back" @tap="GoToHome()" class="header" />
+            <Label text="Время" class="header"/>
         </ActionBar>
 
-        <GridLayout rows="auto" columns="*">
-            <Button text="Домой" @tap="GoToHome()" />
-        </GridLayout>
+        <FlexboxLayout flexDirection="column">
+            <FlexboxLayout flexDirection="column">
+                <Label text="Величина для конвертации:" class="text"/>
+                <TextField v-model="inputValue" keyboardType="number" class="text"/>
+                <ListPicker :items="getValues()" v-model="selectedValue" class="text"/>
+            </FlexboxLayout>
+            <FlexboxLayout flexDirection="column">
+                <Label text="Это равняется:" class="text"/>
+                <Label v-for="value in values" :key="value.name" class="text">{{ value.forInput }} {{ value.name }}</Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
     </Page>
 </template>
 
@@ -15,13 +24,53 @@ import Home from './Home.vue';
     export default {
         data () {
             return {
+                inputValue: 0,
+                selectedValue: 0,
+                values: [
+                    {name: 'МикроСекунд', coef: 10**(-6), forInput: 0},
+                    {name: 'МиллиСекунд', coef: 10**(-3), forInput: 0},
+                    {name: 'Секунд', coef: 1, forInput: 0},
+                    {name: 'Минут', coef: 60, forInput: 0},
+                    {name: 'Часов', coef: 60*60, forInput: 0},
+                    {name: 'Суток', coef: 24*60*60, forInput: 0},
+                    {name: 'Месяцев', coef: 30*24*60*60, forInput: 0},
+                    {name: 'Лет', coef: 365*24*60*60, forInput: 0}
+                ],
             };
+        },
+        watch: {
+            inputValue: function() {
+                this.getResult();
+            },
+            selectedValue: function() {
+                this.getResult();
+            },
         },
         methods: {
             GoToHome: function() {
                 this.$navigateTo(Home);
+            },
+            getValues: function() {
+                let comp = [];
+                for (i = 0; i < this.values.length; i++) {
+                    comp.push(this.values[i].name);
+                }
+                return comp;
+            },
+            getResult: function() {
+                let input = this.inputValue * this.values[this.selectedValue].coef;
+                input = input < 0 ? '-' : input;
+                for (i = 0; i < this.values.length; i++) {
+                    this.values[i].forInput = input / this.values[i].coef;
+                    if ((this.selectedValue == 7) && (i == 6)) {
+                        this.values[i].forInput = this.inputValue * 12;
+                    }
+                    if ((this.selectedValue == 6) && (i == 7)) {
+                        this.values[i].forInput = this.inputValue / 12;
+                    }
+                }
             }
-        }
+        },
     };
 </script>
 
