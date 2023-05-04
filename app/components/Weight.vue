@@ -27,13 +27,13 @@ import Home from './Home.vue';
                 inputValue: 0,
                 selectedValue: 0,
                 values: [
-                    {name: 'МикроГрамм', coef: 10**(-6), forInput: 0},
-                    {name: 'МиллиГрамм', coef: 10**(-3), forInput: 0},
-                    {name: 'Грамм', coef: 1, forInput: 0},
-                    {name: 'КилоГрамм', coef: 10**3, forInput: 0},
-                    {name: 'Центнер', coef: 10**5, forInput: 0},
-                    {name: 'Тонна', coef: 10**6, forInput: 0},
-                    {name: 'КилоТонна', coef: 10**9, forInput: 0}
+                    {name: 'МикроГрамм', coef: 1, forInput: 0},
+                    {name: 'МиллиГрамм', coef: 10**3, forInput: 0},
+                    {name: 'Грамм', coef: 10**6, forInput: 0},
+                    {name: 'КилоГрамм', coef: 10**9, forInput: 0},
+                    {name: 'Центнер', coef: 10**11, forInput: 0},
+                    {name: 'Тонна', coef: 10**12, forInput: 0},
+                    {name: 'КилоТонна', coef: 10**15, forInput: 0}
                 ],
             };
         },
