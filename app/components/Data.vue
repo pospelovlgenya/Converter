@@ -11,8 +11,9 @@
                 <TextField v-model="inputValue" keyboardType="number"/>
                 <ListPicker :items="getValues()" v-model="selectedValue"/>
             </FlexboxLayout>
-            <FlexboxLayout>
-
+            <FlexboxLayout flexDirection="column">
+                <Label text="В ином виде:"/>
+                <Label v-for="value in values" :key="value.name">{{ value.forInput }} {{ value.name }}</Label>
             </FlexboxLayout>
         </FlexboxLayout>
     </Page>
@@ -33,8 +34,16 @@ import Home from './Home.vue';
                     {name: 'ГБ', coef: 8*10**9, forInput: 0},
                     {name: 'ТБ', coef: 8*10**12, forInput: 0},
                     {name: 'ПБ', coef: 8*10**15, forInput: 0}
-                ]
+                ],
             };
+        },
+        watch: {
+            inputValue: function() {
+                this.getResult();
+            },
+            selectedValue: function() {
+                this.getResult();
+            },
         },
         methods: {
             GoToHome: function() {
@@ -46,8 +55,14 @@ import Home from './Home.vue';
                     comp.push(this.values[i].name);
                 }
                 return comp;
+            },
+            getResult: function() {
+                let input = this.inputValue * this.values[this.selectedValue].coef;
+                for (i = 0; i < this.values.length; i++) {
+                    this.values[i].forInput = input / this.values[i].coef;
+                }
             }
-        }
+        },
     };
 </script>
 
