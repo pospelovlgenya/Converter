@@ -57,17 +57,17 @@ import Home from './Home.vue';
                 switch(this.selectedValue) {
                     case 0: // Цельс
                         this.values[0].forInput = input;
-                        this.values[1].forInput = input * 1.8 + 32;
+                        this.values[1].forInput = Number((input * 1.8 + 32).toFixed(3));
                         this.values[2].forInput = input + 273.15;
                     break;
                     case 1: // Фарен
-                        this.values[0].forInput = (input - 32)*0.5555555555556;
+                        this.values[0].forInput = Number(((input - 32)*0.5555556).toFixed(3));
                         this.values[1].forInput = input;
-                        this.values[2].forInput = this.values[0].forInput + 273.15
+                        this.values[2].forInput = Number((this.values[0].forInput + 273.15).toFixed(3))
                     break;
                     case 2: // Кельв
                         this.values[0].forInput = input - 273.15;
-                        this.values[1].forInput = (input - 273.15) * 1.8 + 32;
+                        this.values[1].forInput = Number(((input - 273.15) * 1.8 + 32).toFixed(3));
                         this.values[2].forInput = input;
                     break;
                 }
