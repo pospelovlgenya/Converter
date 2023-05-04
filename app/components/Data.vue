@@ -1,7 +1,7 @@
 <template>
     <Page class="page">
         <ActionBar class="ab">
-            <NavigationButton text="Домой" android.systemIcon="ic_menu_back" @tap="GoToHome()" class="header" />
+            <NavigationButton android.systemIcon="ic_menu_back" @tap="GoToHome()" class="header" />
             <Label text="Данные" class="header"/>
         </ActionBar>
 
@@ -58,6 +58,7 @@ import Home from './Home.vue';
             },
             getResult: function() {
                 let input = this.inputValue * this.values[this.selectedValue].coef;
+                input = input < 0 ? '-' : input;
                 for (i = 0; i < this.values.length; i++) {
                     this.values[i].forInput = input / this.values[i].coef;
                 }
